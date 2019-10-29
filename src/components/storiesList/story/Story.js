@@ -1,23 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import PostStyled from './PostStyled';
+import StoryStyled from './StoryStyled';
 
-const Post = () => {
+const Story = ({story}) => {
+	const {title, type, by, time, score, url, descendants} = story;
+
 	return (
-		<PostStyled>
+		<StoryStyled>
 			<div>
-				<span className="post-reputation">{123}</span>
+				<span className="post-reputation">{score}</span>
 				<span className="post-info">
-                    {"story"} posted by {"Alex"} {"2 days ago"}
+                    {type} posted by {by} {time}
                 </span>
 			</div>
 			<div className='post-body'>
-				<a href={"fdsfdsf"}>{"dfsdfdsfds sdfds f dsfdsf"}</a>
+				<a href={url || ""} target="_blank">{title}</a>
 			</div>
 			<div>
 				<a href="#void" className='post-btn-comment'>
 					{/*<FontAwesomeIcon icon={faComment} className='mr-5'/>*/}
-					{132} comments
+					{descendants} comments
 				</a>
 				<a href="#void" className='post-btn-comment'>
 					{/*<FontAwesomeIcon icon={faHashtag} className='mr-5'/>*/}
@@ -25,12 +27,12 @@ const Post = () => {
 				</a>
 
 			</div>
-		</PostStyled>
+		</StoryStyled>
 	)
 };
 
-Post.propTypes = {};
+Story.propTypes = {};
 
-Post.defaultProps = {};
+Story.defaultProps = {};
 
-export default Post;
+export default Story;

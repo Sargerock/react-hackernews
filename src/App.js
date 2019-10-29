@@ -3,7 +3,7 @@ import {BrowserRouter} from 'react-router-dom';
 import {Provider} from 'react-redux'
 
 import Header from './components/header/Header';
-import PostsList from './components/postsList/PostsList';
+import StoriesListContainer from './components/storiesList/StoriesListContainer';
 import store from './store/store';
 
 import {GlobalStyle} from './styles';
@@ -15,7 +15,7 @@ function App() {
           <GlobalStyle/>
             <div>
               <Header/>
-              <PostsList/>
+              <StoriesListContainer/>
             </div>
         </BrowserRouter>
       </Provider>

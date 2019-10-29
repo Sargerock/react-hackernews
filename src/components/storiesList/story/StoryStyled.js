@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const PostStyled = styled.div`
+const StoryStyled = styled.div`
 	background-color: white;
     border-radius: 3px;
     border: 1px solid #EBEBEB;
@@ -44,4 +44,4 @@ const PostStyled = styled.div`
 	}
 `;
 
-export default PostStyled;
+export default StoryStyled;
