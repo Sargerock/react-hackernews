@@ -9,9 +9,9 @@ const StoriesList = state => {
 	const {
 		isStoriesLoading,
 		hasErrors,
-		currentStoriesType,
 		stories,
 		storiesIds,
+		currentStoriesType,
 		storiesPerFetch,
 		initializeStories,
 		getStories
@@ -21,7 +21,8 @@ const StoriesList = state => {
 
 	useEffect(() => {
 		initializeStories(currentStoriesType, storiesPerFetch);
-	}, [initializeStories, currentStoriesType, storiesPerFetch]);
+		setCurrentFetchPosition(storiesPerFetch);
+	}, [currentStoriesType, initializeStories, storiesPerFetch]);
 
 	useEffect(() => {
 		if (hasErrors) {

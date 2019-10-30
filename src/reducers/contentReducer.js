@@ -2,7 +2,7 @@ import {
 	GET_STORIES_FAILED,
 	GET_STORIES_SUCCESS,
 	INITIALIZE_STORIES_REQUEST,
-	INITIALIZE_STORIES_SUCCESS
+	INITIALIZE_STORIES_SUCCESS, SET_STORIES_TYPE
 } from '../constants/contentConstant';
 
 const initialState = {
@@ -26,7 +26,8 @@ export const contentReducer = (state = initialState, action) => {
 		case INITIALIZE_STORIES_SUCCESS:
 			return {
 				...state,
-				storiesIds: [...action.payload]
+				storiesIds: [...action.payload],
+				stories: []
 			};
 		case GET_STORIES_SUCCESS:
 			return {
@@ -40,6 +41,11 @@ export const contentReducer = (state = initialState, action) => {
 				isStoriesLoading: false,
 				hasErrors: true,
 				error: action.payload
+			};
+		case SET_STORIES_TYPE:
+			return {
+				...state,
+				currentStoriesType: action.payload
 			};
 		default:
 			return state;

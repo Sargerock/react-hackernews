@@ -3,7 +3,7 @@ import {
 	GET_STORIES_FAILED,
 	GET_STORIES_SUCCESS, INITIALIZE_STORIES,
 	INITIALIZE_STORIES_REQUEST,
-	INITIALIZE_STORIES_SUCCESS
+	INITIALIZE_STORIES_SUCCESS, SET_STORIES_TYPE
 } from '../constants/contentConstant';
 
 export const initializeStories = (storiesType, storiesPerFetch) => ({
@@ -15,3 +15,4 @@ export const initializeStoriesRequest = () => ({type: INITIALIZE_STORIES_REQUEST
 export const setStoriesIds = data => ({type: INITIALIZE_STORIES_SUCCESS, payload: data});
 export const setStories = data => ({type: GET_STORIES_SUCCESS, payload: data});
 export const setStoriesFailed = error => ({type: GET_STORIES_FAILED, payload: error});
+export const setStoriesType = type => ({type: SET_STORIES_TYPE, payload: type});
