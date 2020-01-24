@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import StoryStyled from './StoryStyled';
 
 const Story = ({story}) => {
@@ -14,7 +13,7 @@ const Story = ({story}) => {
                 </span>
 			</div>
 			<div className='post-body'>
-				<a href={url || ""} target="_blank">{title}</a>
+				<a href={url || ""} target="_blank" rel="noopener noreferrer">{title}</a>
 			</div>
 			<div>
 				<a href="#void" className='post-btn-comment'>

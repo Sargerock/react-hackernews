@@ -3,15 +3,16 @@ import { connect } from 'react-redux';
 import { getStories, initializeStories } from '../../actions/contentAction';
 import StoriesList from './StoriesList';
 
-const mapStateToProps = state => {
-	const {stories, storiesIds, storiesPerFetch, isStoriesLoading, hasErrors, currentStoriesType} = state.content;
+const mapStateToProps = (state, props) => {
+		const {stories, storiesIds, storiesPerFetch, isStoriesLoading, hasErrors, currentStoriesType} = state.content;
 		return {
 			stories,
 			storiesIds,
 			currentStoriesType,
 			storiesPerFetch,
 			isStoriesLoading,
-			hasErrors
+			hasErrors,
+			storyType: props.storyType
 		}
 	}
 ;

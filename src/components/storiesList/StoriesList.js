@@ -1,28 +1,28 @@
 import React, { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
 import InfiniteScroll from 'react-infinite-scroll-component';
 
 import StoriesListStyled from './StoriesListStyled';
 import Story from './story/Story';
 
-const StoriesList = state => {
+const StoriesList = props => {
 	const {
 		isStoriesLoading,
 		hasErrors,
 		stories,
 		storiesIds,
-		currentStoriesType,
 		storiesPerFetch,
 		initializeStories,
-		getStories
-	} = state;
+		getStories,
+		storyType
+	} = props;
 
 	const [currentFetchPosition, setCurrentFetchPosition] = useState(storiesPerFetch);
 
+
 	useEffect(() => {
-		initializeStories(currentStoriesType, storiesPerFetch);
+		initializeStories(storyType, storiesPerFetch);
 		setCurrentFetchPosition(storiesPerFetch);
-	}, [currentStoriesType, initializeStories, storiesPerFetch]);
+	}, [storyType, initializeStories, storiesPerFetch]);
 
 	useEffect(() => {
 		if (hasErrors) {
@@ -52,7 +52,7 @@ const StoriesList = state => {
 						loader={<div>Loading...</div>}
 						endMessage={
 							<p style={{textAlign: "center"}}>
-								<b>Yay! You have seen it all</b>
+								<b>That's all :(</b>
 							</p>
 						}
 					>
