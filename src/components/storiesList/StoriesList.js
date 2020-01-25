@@ -13,11 +13,12 @@ const StoriesList = props => {
 		storiesPerFetch,
 		initializeStories,
 		getStories,
-		storyType
+		storyType,
 	} = props;
 
-	const [currentFetchPosition, setCurrentFetchPosition] = useState(storiesPerFetch);
-
+	const [currentFetchPosition, setCurrentFetchPosition] = useState(
+		storiesPerFetch
+	);
 
 	useEffect(() => {
 		initializeStories(storyType, storiesPerFetch);
@@ -32,35 +33,43 @@ const StoriesList = props => {
 
 	const getMorePosts = () => {
 		if (storiesIds && storiesIds.length > 0) {
-			getStories(storiesIds.slice(currentFetchPosition, currentFetchPosition + storiesPerFetch));
+			getStories(
+				storiesIds.slice(
+					currentFetchPosition,
+					currentFetchPosition + storiesPerFetch
+				)
+			);
 			setCurrentFetchPosition(currentFetchPosition + storiesPerFetch);
 		}
 	};
 
-	const mapStories = stories.map(story => <Story story={story} key={story.id}/>);
+	const mapStories = stories.map(story => (
+		<Story story={story} key={story.id} />
+	));
 
 	return (
 		<StoriesListStyled>
-			{isStoriesLoading ?
-				<div>Loading...</div> :
-				hasErrors ?
-					<div>Connection error, try again later.</div> :
-					<InfiniteScroll
-						dataLength={stories.length}
-						next={getMorePosts}
-						hasMore={true}
-						loader={<div>Loading...</div>}
-						endMessage={
-							<p style={{textAlign: "center"}}>
-								<b>That's all :(</b>
-							</p>
-						}
-					>
-						{mapStories}
-					</InfiniteScroll>
-			}
+			{isStoriesLoading ? (
+				<div>Loading...</div>
+			) : hasErrors ? (
+				<div>Connection error, try again later.</div>
+			) : (
+				<InfiniteScroll
+					dataLength={stories.length}
+					next={getMorePosts}
+					hasMore={true}
+					loader={<div>Loading...</div>}
+					endMessage={
+						<p style={{ textAlign: 'center' }}>
+							<b>That's all :(</b>
+						</p>
+					}
+				>
+					{mapStories}
+				</InfiniteScroll>
+			)}
 		</StoriesListStyled>
-	)
+	);
 };
 
 StoriesList.propTypes = {};
