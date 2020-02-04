@@ -1,9 +1,12 @@
 import React from 'react';
+
+import Loader from '../common/loader/Loader';
 import { dateToNowDifference, extractHostNameFromURL } from '../../utils';
+import CommentContainer from './comment/CommentContainer';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faComment } from '@fortawesome/free-solid-svg-icons/faComment';
 import { faHashtag } from '@fortawesome/free-solid-svg-icons/faHashtag';
-import CommentContainer from './comment/CommentContainer';
 import Div from './CommentsListStyled';
 
 const CommentsList = ({
@@ -51,7 +54,7 @@ const CommentsList = ({
 					</a>
 				</div>
 			</div>
-			{isCommentsLoading ? <div>loading</div> : mapKidsToCommentContainer}
+			{isCommentsLoading ? <Loader /> : mapKidsToCommentContainer}
 		</Div>
 	);
 };

@@ -3,6 +3,7 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 
 import StoriesListStyled from './StoriesListStyled';
 import Story from './story/Story';
+import Loader from '../common/loader/Loader';
 
 const StoriesList = props => {
 	const {
@@ -50,7 +51,7 @@ const StoriesList = props => {
 	return (
 		<StoriesListStyled>
 			{isStoriesLoading ? (
-				<div>Loading...</div>
+				<Loader />
 			) : hasErrors ? (
 				<div>Connection error, try again later.</div>
 			) : (

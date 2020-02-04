@@ -1,21 +1,25 @@
 import styled from 'styled-components';
 
 const MenuStyled = styled.button`
-	display: flex;
+	display: none;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 	background-color: white;
-	border: 2px solid #FF8F35;
+	border: 2px solid #ff8f35;
 	border-radius: 4px;
 	width: 35px;
 	height: 35px;
-	
+
 	span {
-		background-color: #FF8F35;
+		background-color: #ff8f35;
 		width: 20px;
 		height: 3px;
 		margin: 2px;
+	}
+
+	@media screen and (max-width: 768px) {
+		display: flex;
 	}
 `;
 

@@ -1,18 +1,13 @@
 import styled from 'styled-components';
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 
 const InputStyled = styled.input`
 	border-radius: 3px;
 	border: 1px solid lightgray;
 	height: 30px;
 	width: ${props => props.width}px;
-	
-	::-webkit-input-placeholder {
-		padding-left: 10px;
-	}
-	:-ms-input-placeholder {
-		padding-left: 10px;
-	}
+	margin: 0 10px;
+	padding-left: 10px;
 	::placeholder {
 		padding-left: 10px;
 	}
@@ -20,12 +15,12 @@ const InputStyled = styled.input`
 
 InputStyled.propTypes = {
 	width: PropTypes.number,
-	type: PropTypes.string
+	type: PropTypes.string,
 };
 
 InputStyled.defaultProps = {
 	width: 300,
-	type: 'text'
+	type: 'text',
 };
 
 export default InputStyled;
